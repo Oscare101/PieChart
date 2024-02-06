@@ -18,8 +18,8 @@ export default function Dividers(props: any) {
               style={{
                 position: 'absolute',
                 bottom: 0,
-                left: -props.dividerLength / 2,
-                width: props.dividerLength,
+                left: -props.dividerWidth / 2,
+                width: props.dividerWidth,
                 height: props.componentWidth / 2,
                 backgroundColor: props.backgroundColor,
               }}
