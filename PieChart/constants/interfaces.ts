@@ -5,4 +5,5 @@ export interface DataProps {
 
 export interface PieChartProps {
   data: DataProps[];
+  backgroundColor?: string;
 }

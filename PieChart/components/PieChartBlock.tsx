@@ -17,18 +17,30 @@ export default function PieChartBlock(props: any) {
         series={GetValuesFromData(props.data)}
         sliceColor={GetColorsFromData(props.data)}
         coverRadius={props.outterChartWidth}
-        coverFill={'#00000000'}
+        coverFill={props.backgroundColor}
       />
       {props.shadow ? (
-        <View
-          style={{
-            position: 'absolute',
-            width: props.componentWidth,
-            height: props.componentWidth,
-            backgroundColor: '#00000020',
-            borderRadius: props.componentWidth,
-          }}
-        />
+        <>
+          <View
+            style={{
+              position: 'absolute',
+              width: props.componentWidth,
+              height: props.componentWidth,
+              backgroundColor: '#00000020',
+              borderRadius: props.componentWidth,
+            }}
+          />
+          <View
+            style={{
+              position: 'absolute',
+              width: props.componentWidth * props.outterChartWidth,
+              height: props.componentWidth * props.outterChartWidth,
+              backgroundColor: props.backgroundColor,
+              borderRadius: props.componentWidth,
+              zIndex: 2,
+            }}
+          />
+        </>
       ) : (
         <></>
       )}

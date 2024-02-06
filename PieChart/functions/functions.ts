@@ -13,3 +13,15 @@ export function GetColorsFromData(data: DataProps[]) {
   });
   return colors;
 }
+
+export function GetDividersRotateDegrees(data: DataProps[]) {
+  const valuesBefore = 0;
+  const valuesSum = data.reduce((a: number, b: DataProps) => a + b.value, 0);
+  let degrees: number[] = [];
+  data.forEach((d: DataProps) => {
+    degrees.push(
+      (d.value / valuesSum) * 360 + (degrees[degrees.length - 1] || 0),
+    );
+  });
+  return degrees;
+}
