@@ -61,7 +61,7 @@ export default function PieChart(props: PieChartProps) {
       ) : (
         <></>
       )}
-      {props.data[0].title && props.titles ? (
+      {props.titles ? (
         <Titles
           data={props.data}
           titleLineWidth={titleLineWidth}
