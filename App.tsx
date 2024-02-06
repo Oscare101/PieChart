@@ -1,6 +1,8 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import PieChart from './PieChart/PieChart';
+
+const width = Dimensions.get('screen').width;
 
 export default function App() {
   const data = [
@@ -26,10 +28,12 @@ export default function App() {
     <View style={styles.container}>
       <PieChart
         data={data}
-        // backgroundColor="#111"
+        backgroundColor="#111"
         outterChartWidth={0.45}
         innerChartWidth={0.3}
         dividerWidth={2}
+        shadowColor="#00000050"
+        componentWidth={width * 0.9}
       />
     </View>
   );
@@ -40,6 +44,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: '#111',
+    backgroundColor: '#111',
   },
 });

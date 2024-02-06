@@ -1,79 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Pie chart
 
-# Getting Started
+Bare React Native pie chart
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+### Example of components with default properties
 
-## Step 1: Start the Metro Server
+![example](./screenshots/example1.jpg)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+```tsx
+import PieChart from './PieChart/PieChart';
 
-To start Metro, run the following command from the _root_ of your React Native project:
+const data = [
+  {value: 2, color: '#a0a'},
+  {value: 4, color: '#05a'},
+  {value: 5, color: '#a50'},
+];
 
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+<PieChart data={data} />;
 ```
 
-## Step 2: Start your Application
+### Usage
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Requires `react-native-pie-chart` and `react-native-svg`
 
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```
+npm i react-native-pie-chart
+npm i react-native-svg
 ```
 
-### For iOS
+### Properties
 
-```bash
-# using npm
-npm run ios
+| Property         | Type     | Required | Description                                                  |
+| ---------------- | -------- | -------- | ------------------------------------------------------------ |
+| data             | Object[] | Yes      | Data to render. Use [{value:number, color:string}] type      |
+| backgroundColor  | string   | No       | Color for background and dividers                            |
+| outterChartWidth | number   | No       | Width of outter chart circle. Use 0-1 format. Default is 0.4 |
+| innerChartWidth  | number   | No       | Width of inner chart circle. Use 0-1 format. Default is 0.4  |
+| dividerWidth     | number   | No       | Width for dividers between cart sections                     |
+| shadowColor      | string   | No       | Color for inner shadowed sections. Default is #00000020      |
+| componentWidth   | number   | No       | The size of the component                                    |
 
-# OR using Yarn
-yarn ios
+### Example of using all styles properties
+
+![example](./screenshots/example2.jpg)
+
+```tsx
+const data = [
+  {value: 2, color: '#a0a'},
+  {value: 4, color: '#05a'},
+  {value: 5, color: '#a50'},
+  {value: 2, color: '#a0a'},
+  {value: 4, color: '#05a'},
+  {value: 5, color: '#a50'},
+  {value: 2, color: '#a0a'},
+  {value: 4, color: '#05a'},
+  {value: 5, color: '#a50'},
+  {value: 2, color: '#a0a'},
+  {value: 4, color: '#05a'},
+  {value: 5, color: '#a50'},
+  {value: 2, color: '#a0a'},
+  {value: 4, color: '#05a'},
+  {value: 5, color: '#a50'},
+  {value: 2, color: '#a0a'},
+];
+
+<PieChart
+  data={data}
+  backgroundColor="#111"
+  outterChartWidth={0.45}
+  innerChartWidth={0.3}
+  dividerWidth={2}
+  shadowColor="#00000050"
+  componentWidth={width * 0.9}
+/>;
 ```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
