@@ -3,6 +3,7 @@ import {PieChartProps} from './constants/interfaces';
 import PieChartBlock from './components/PieChartBlock';
 import Dividers from './components/Dividers';
 import defaultValues from './constants/defaultValues';
+import Titles from './components/Titles';
 
 const width = Dimensions.get('screen').width;
 
@@ -20,6 +21,8 @@ export default function PieChart(props: PieChartProps) {
       : defaultValues.innerChartWidth);
   const dividerWidth = props.dividerWidth || 2;
   const backgroundColor = props.backgroundColor || '#eee';
+  const titleLineWidth = props.titleLineWidth || 2;
+  const titleLineColor = props.titleLineColor || '#000';
 
   return (
     <View
@@ -54,6 +57,17 @@ export default function PieChart(props: PieChartProps) {
           componentWidth={componentWidth}
           dividerWidth={dividerWidth}
           backgroundColor={backgroundColor}
+        />
+      ) : (
+        <></>
+      )}
+      {props.data[0].title && props.titles ? (
+        <Titles
+          data={props.data}
+          titleLineWidth={titleLineWidth}
+          componentWidth={componentWidth}
+          titleLineColor={titleLineColor}
+          titleStyles={props.titleStyles}
         />
       ) : (
         <></>

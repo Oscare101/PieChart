@@ -15,13 +15,24 @@ export function GetColorsFromData(data: DataProps[]) {
 }
 
 export function GetDividersRotateDegrees(data: DataProps[]) {
-  const valuesBefore = 0;
   const valuesSum = data.reduce((a: number, b: DataProps) => a + b.value, 0);
   let degrees: number[] = [];
   data.forEach((d: DataProps) => {
     degrees.push(
       (d.value / valuesSum) * 360 + (degrees[degrees.length - 1] || 0),
     );
+  });
+  return degrees;
+}
+
+export function GetTitlesRotateDegrees(data: DataProps[]) {
+  const valuesSum = data.reduce((a: number, b: DataProps) => a + b.value, 0);
+  let degrees: number[] = [];
+  data.forEach((d: DataProps, index: number) => {
+    const previousSum = data
+      .slice(0, index)
+      .reduce((a: number, b: DataProps) => a + b.value, 0);
+    degrees.push(((d.value / 2 + previousSum) / valuesSum) * 360);
   });
   return degrees;
 }

@@ -1,6 +1,7 @@
 export interface DataProps {
   value: number;
   color: string;
+  title?: string;
 }
 
 export interface PieChartProps {
@@ -11,4 +12,9 @@ export interface PieChartProps {
   dividerWidth?: number;
   componentWidth?: number;
   shadowColor?: string;
+  titles?: boolean;
+  titleLineWidth?: number;
+  titleLineColor?: string;
+  titleStyles?: any;
+  // titleFontSize?: number;
 }
