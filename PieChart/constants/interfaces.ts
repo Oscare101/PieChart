@@ -10,4 +10,5 @@ export interface PieChartProps {
   innerChartWidth?: number;
   dividerWidth?: number;
   componentWidth?: number;
+  shadowColor?: string;
 }

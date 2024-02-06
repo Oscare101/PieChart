@@ -1,17 +1,11 @@
 import {View} from 'react-native';
 import PieChart from 'react-native-pie-chart';
 import {GetColorsFromData, GetValuesFromData} from '../functions/functions';
+import styles from '../constants/styles';
 
 export default function PieChartBlock(props: any) {
   return (
-    <View
-      style={{
-        width: '100%',
-        height: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'absolute',
-      }}>
+    <View style={styles.absoluteCenter}>
       <PieChart
         widthAndHeight={props.componentWidth}
         series={GetValuesFromData(props.data)}
@@ -26,7 +20,7 @@ export default function PieChartBlock(props: any) {
               position: 'absolute',
               width: props.componentWidth,
               height: props.componentWidth,
-              backgroundColor: '#00000020',
+              backgroundColor: props.shadowColor || '#00000020',
               borderRadius: props.componentWidth,
             }}
           />

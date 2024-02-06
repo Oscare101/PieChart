@@ -20,6 +20,7 @@ export default function PieChart(props: PieChartProps) {
       : defaultValues.innerChartWidth);
   const dividerWidth = props.dividerWidth || 2;
   const backgroundColor = props.backgroundColor || '#eee';
+
   return (
     <View
       style={{
@@ -41,6 +42,7 @@ export default function PieChart(props: PieChartProps) {
           chartWidth={innerChartWidth}
           backgroundColor={backgroundColor}
           shadow={true}
+          shadowColor={props.shadowColor}
         />
       ) : (
         <></>
